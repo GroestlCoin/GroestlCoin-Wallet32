@@ -197,7 +197,7 @@ public class ViewAddressActivity extends BaseWalletActivity {
     }
 
     public void viewBlockchain(View view) {
-        String url = "https://blockchain.info/address/" + mAddress;
+        String url = "https://chainz.cryptoid.info/grs/address.dws?" + mAddress;
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);

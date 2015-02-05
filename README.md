@@ -101,7 +101,12 @@ Version: 0.3.17 (6-Feb-2015)
 
 Source:  https://github.com/HashEngineering/GroestlCoin-Wallet32
 
-This is a fork of Wallet32
+GroestlCoin Wallet32 is made possible by:
+* [groestlcoinj](https://github.com/HashEngineering/groestlcoinj)
+* [groestlcoin-wallet](https://github.com/HashEngineering/groestlcoin-wallet)
+* [cryptoID Blockchain Explorers](https://chainz.cryptoid.info/grs/)
+
+But most importantly this app is a fork of Wallet32:
 
 Source:  https://github.com/ksedgwic/Wallet32
 
@@ -122,8 +127,8 @@ Data Provided by [WINKDEX&#8480;](http://www.winkdex.com/)
 
 Powered by [CoinDesk](http://www.coindesk.com/price)
 
-Donate: [FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf](groestlcoin:FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf)
-Donate: [19AM3mZ75h7pqwuFpcjudemnWZhsXhCjmL](bitcoin:19AM3mZ75h7pqwuFpcjudemnWZhsXhCjmL)
+Donate GRS: [FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf](groestlcoin:FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf)
+Donate BTC: [19AM3mZ75h7pqwuFpcjudemnWZhsXhCjmL](bitcoin:19AM3mZ75h7pqwuFpcjudemnWZhsXhCjmL)
 
 Copyright (C) 2013-2015 Bonsai Software, Inc.  All rights reserved.
 Copyright (C) 2015 Hash Engineering Solutions.  All rights reserved.

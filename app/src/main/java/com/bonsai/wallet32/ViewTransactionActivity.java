@@ -451,7 +451,7 @@ public class ViewTransactionActivity extends BaseWalletActivity {
 
         String addrstr = addr.toString();
         
-        String url = "https://blockchain.info/address/" + addrstr;
+        String url = "https://chainz.cryptoid.info/grs/address.dws?" + addrstr;
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
@@ -462,7 +462,7 @@ public class ViewTransactionActivity extends BaseWalletActivity {
     }
 
     public void viewBlockchain(View view) {
-        String url = "https://blockchain.info/tx/" + mHash;
+        String url = "https://chainz.cryptoid.info/grs/tx.dws?" + mHash;
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
