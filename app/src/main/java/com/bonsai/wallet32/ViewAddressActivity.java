@@ -37,7 +37,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ViewAddressActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

@@ -83,7 +83,7 @@ import com.google.bitcoin.script.Script;
 import com.google.bitcoin.wallet.WalletTransaction;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class WalletService extends Service
     implements OnSharedPreferenceChangeListener {
 
@@ -470,11 +470,17 @@ public class WalletService extends Service
 				                             mKeyCrypter,
                                              mAesKey);
 			} catch (InvalidCipherTextException ex) {
-                mLogger.error("wallet restore failed: " + ex.toString());
-			} catch (IOException ex) {
-                mLogger.error("wallet restore failed: " + ex.toString());
-			} catch (RuntimeException ex) {
-                mLogger.error("wallet restore failed: " + ex.toString());
+                mLogger.error("wallet restore failed 1: " + ex.toString());
+ 			} catch (IOException ex) {
+                mLogger.error("wallet restore failed 2: " + ex.toString());
+ 			} catch (RuntimeException ex) {
+                mLogger.error("wallet restore failed 3: " + ex.toString());
+                ex.printStackTrace();
+                if(ex.getCause() != null)
+                {
+                    mLogger.error("exception cause: "+ ex.getCause().toString());
+                }
+                else mLogger.error("exception has no cause");
 			}
 
             if (mHDWallet == null) {
@@ -1143,7 +1149,7 @@ public class WalletService extends Service
 				output = outputs.getJSONObject(ii);
 
                 String tx_hash = output.getString("tx_hash");
-                int tx_output_n = output.getInt("tx_output_n");
+                int tx_output_n = output.getInt("tx_ouput_n");  //this typo is necessary for GroestlCoin
                 String script = output.getString("script");
 
                 // Reverse byte order, create hash.

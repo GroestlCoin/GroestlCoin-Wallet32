@@ -42,7 +42,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class LobbyActivity extends Activity {
 
     private static Logger mLogger =

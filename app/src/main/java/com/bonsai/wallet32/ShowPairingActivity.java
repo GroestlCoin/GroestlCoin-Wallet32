@@ -24,7 +24,7 @@ import android.graphics.Bitmap;
 import android.nfc.NfcManager;
 import android.os.Bundle;
 import android.widget.ImageView;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ShowPairingActivity extends BaseWalletActivity {
     private NfcManager nfcManager;
 

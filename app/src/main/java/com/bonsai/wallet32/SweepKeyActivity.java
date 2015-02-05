@@ -33,13 +33,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spongycastle.util.encoders.Hex;
 
 import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.AddressFormatException;
+import com.google.bitcoin.core.CoinDefinition;
 import com.google.bitcoin.core.DumpedPrivateKey;
 import com.google.bitcoin.core.ECKey;
 import com.google.bitcoin.core.NetworkParameters;
 import com.google.bitcoin.core.WrongNetworkException;
+import com.google.bitcoin.params.MainNetParams;
+import com.google.bitcoin.script.ScriptBuilder;
 import com.google.bitcoin.uri.BitcoinURI;
 import com.google.bitcoin.uri.BitcoinURIParseException;
 
@@ -67,7 +71,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class SweepKeyActivity extends BaseWalletActivity {
 
     private static Logger mLogger =
@@ -408,9 +412,11 @@ public class SweepKeyActivity extends BaseWalletActivity {
 
     private class FetchUnspentTask extends AsyncTask<String, Void, String> {
 
-        String baseUrl = "https://blockchain.info/unspent?active=";
+        String baseUrl = CoinDefinition.UNSPENT_API_URL;//"https://blockchain.info/unspent?active=";
 
         DialogFragment		mDF = null;
+
+        String address = null;
 
         @Override
         protected void onPreExecute() {
@@ -423,10 +429,15 @@ public class SweepKeyActivity extends BaseWalletActivity {
 		protected String doInBackground(String... params)
         {
             final String addr = params[0];
+            address = addr;
 
             mLogger.info("fetching unspent outputs for " + addr);
             
-            String url = baseUrl + addr;
+            String url = baseUrl;// + addr;
+            url += "&key=d47da926b82e";    //Cryptoid API key
+            url += "&active=" + addr;
+
+            mLogger.info("sweep url: " + url);
 
             try {
                 DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -442,6 +453,7 @@ public class SweepKeyActivity extends BaseWalletActivity {
                     sb.append(line + "\n");
                 }
                 is.close();
+                mLogger.info("sweep result: " + sb.toString());
                 return sb.toString();
 
             } catch (UnsupportedEncodingException e) {
@@ -468,7 +480,7 @@ public class SweepKeyActivity extends BaseWalletActivity {
                 return;
             }
                 
-            else if (jsonstr.contains("No free outputs to spend")) {
+            else if (jsonstr.contains("{\"unspent_outputs\":[]}")) {
                 showErrorDialog(mRes.getString(R.string.sweep_no_unspent));
                 mBalanceBTCText.setText("0.0", TextView.BufferType.NORMAL);
                 updateBalance();
@@ -483,6 +495,12 @@ public class SweepKeyActivity extends BaseWalletActivity {
                 for (int ii = 0; ii < outputs.length(); ++ii) {
                     JSONObject output = outputs.getJSONObject(ii);
                     balance += output.getLong("value");
+
+                    if(!output.has("script"))
+                    {
+                        Address addressObject = new Address(MainNetParams.get(), this.address);
+                        output.put("script", ScriptBuilder.createOutputScript(addressObject).getProgram());
+                    }
                 }
 
                 mLogger.info(String.format("key balance %d", balance));

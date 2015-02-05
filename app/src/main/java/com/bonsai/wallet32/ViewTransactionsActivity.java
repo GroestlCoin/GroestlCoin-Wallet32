@@ -43,7 +43,7 @@ import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.TransactionConfidence;
 import com.google.bitcoin.core.TransactionConfidence.ConfidenceType;
 import com.google.bitcoin.wallet.WalletTransaction;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ViewTransactionsActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

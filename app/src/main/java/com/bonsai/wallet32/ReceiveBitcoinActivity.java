@@ -36,7 +36,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.bitcoin.core.Address;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ReceiveBitcoinActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

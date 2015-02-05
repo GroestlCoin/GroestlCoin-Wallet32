@@ -36,7 +36,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ViewAccountActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

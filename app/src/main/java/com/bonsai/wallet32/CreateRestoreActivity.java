@@ -24,7 +24,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class CreateRestoreActivity extends Activity {
 
     private static Logger mLogger =

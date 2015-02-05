@@ -41,7 +41,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class PasscodeActivity extends ActionBarActivity {
 
     private static final int MAX_PASSCODE_LENGTH = 32;

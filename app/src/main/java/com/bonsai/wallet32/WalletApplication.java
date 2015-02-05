@@ -45,7 +45,7 @@ import ch.qos.logback.core.rolling.RollingFileAppender;
 import ch.qos.logback.core.rolling.TimeBasedRollingPolicy;
 
 import com.google.bitcoin.crypto.KeyCrypter;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class WalletApplication
     extends Application
     implements OnSharedPreferenceChangeListener {
@@ -170,24 +170,24 @@ public class WalletApplication
     }
         
     private void setBTCUnits(String src) {
-        if (src.equals("UBTC")) {
-            mLogger.info("Setting BTC units to uBTC");
+        if (src.equals("UGRS")) {
+            mLogger.info("Setting GRS units to uGRS");
             mBTCFmt = new BTCFmt(BTCFmt.SCALE_UBTC, this);
         }
-        else if (src.equals("MBTC")) {
-            mLogger.info("Setting BTC units to MBTC");
+        else if (src.equals("MGRS")) {
+            mLogger.info("Setting GRS units to MGRS");
             mBTCFmt = new BTCFmt(BTCFmt.SCALE_MBTC, this);
         }
-        else if (src.equals("BTC")) {
-            mLogger.info("Setting BTC units to BTC");
+        else if (src.equals("GRS")) {
+            mLogger.info("Setting GRS units to GRS");
             mBTCFmt = new BTCFmt(BTCFmt.SCALE_BTC, this);
         }
         else if (src.equals("")) {
-            mLogger.info("Defaulting BTC units to MBTC");
+            mLogger.info("Defaulting GRS units to MGRS");
             mBTCFmt = new BTCFmt(BTCFmt.SCALE_MBTC, this);
         }
         else {
-            mLogger.warn("Unknown btc units " + src);
+            mLogger.warn("Unknown grs units " + src);
             return;
         }
     }

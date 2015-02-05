@@ -17,7 +17,7 @@ package com.bonsai.wallet32;
 
 import android.content.Context;
 import android.content.res.Resources;
-
+import hashengineering.groestlcoin.wallet32.R;
 
 public class BTCFmt {
 

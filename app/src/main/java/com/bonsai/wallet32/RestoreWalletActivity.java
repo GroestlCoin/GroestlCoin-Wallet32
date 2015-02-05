@@ -47,7 +47,7 @@ import com.bonsai.wallet32.HDWallet.HDStructVersion;
 import com.google.bitcoin.core.NetworkParameters;
 import com.google.bitcoin.crypto.MnemonicCodeX;
 import com.google.bitcoin.crypto.MnemonicException;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class RestoreWalletActivity extends ActionBarActivity {
 
     private static Logger mLogger =

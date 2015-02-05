@@ -30,7 +30,7 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class AboutActivity extends ActionBarActivity {
 
     private static Logger mLogger =

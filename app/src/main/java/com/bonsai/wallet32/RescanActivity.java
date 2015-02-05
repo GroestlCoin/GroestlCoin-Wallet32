@@ -22,7 +22,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class RescanActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

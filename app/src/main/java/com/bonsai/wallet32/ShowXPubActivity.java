@@ -29,7 +29,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ShowXPubActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

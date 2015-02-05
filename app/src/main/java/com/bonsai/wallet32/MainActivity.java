@@ -36,7 +36,7 @@ import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class MainActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

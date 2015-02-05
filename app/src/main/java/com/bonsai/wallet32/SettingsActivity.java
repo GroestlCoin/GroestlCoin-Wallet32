@@ -47,7 +47,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class SettingsActivity extends PreferenceActivity {
 
     private static Logger mLogger =
@@ -430,7 +430,7 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 
 		intent.putExtra(Intent.EXTRA_EMAIL,
-                        new String[] { "wallet32-dump@bonsai.com" });
+                        new String[] { "hashengineeringsolutions@gmail.com" });
         intent.putExtra(Intent.EXTRA_SUBJECT, "wallet32 logs");
 		intent.putExtra(Intent.EXTRA_TEXT, "-- LOGS ATTACHED --");
 

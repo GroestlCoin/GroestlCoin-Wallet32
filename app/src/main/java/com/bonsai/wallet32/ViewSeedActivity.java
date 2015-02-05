@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.google.bitcoin.crypto.MnemonicCodeX;
 import com.google.bitcoin.crypto.MnemonicException;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class ViewSeedActivity extends BaseWalletActivity {
 
     private static Logger mLogger =

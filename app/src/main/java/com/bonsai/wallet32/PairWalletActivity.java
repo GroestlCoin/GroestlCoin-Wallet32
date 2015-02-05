@@ -41,7 +41,7 @@ import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import eu.livotov.zxscan.ZXScanHelper;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class PairWalletActivity extends ActionBarActivity {
 
     private static Logger mLogger =

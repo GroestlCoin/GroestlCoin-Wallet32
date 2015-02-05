@@ -57,7 +57,7 @@ import com.google.bitcoin.uri.BitcoinURI;
 import com.google.bitcoin.uri.BitcoinURIParseException;
 
 import eu.livotov.zxscan.ZXScanHelper;
-
+import hashengineering.groestlcoin.wallet32.R;
 public class SendBitcoinActivity extends BaseWalletActivity implements BitcoinSender {
 
     private static Logger mLogger =
