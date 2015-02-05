@@ -111,6 +111,7 @@ public class WinkDexRateUpdater extends Thread implements RateUpdater {
             String json = sb.toString();
             JSONObject jObj = new JSONObject(json);
             double rate = (double) jObj.getLong("price") / 100.0;
+            rate = rate * GroestlCoinRate.get();
             return rate;
 
         } catch (UnsupportedEncodingException e) {

@@ -107,6 +107,7 @@ public class BitStampRateUpdater extends Thread implements RateUpdater {
             String json = sb.toString();
             JSONObject jObj = new JSONObject(json);
             double rate = jObj.getDouble("last");
+            rate = rate * GroestlCoinRate.get();
             return rate;
 
         } catch (UnsupportedEncodingException e) {

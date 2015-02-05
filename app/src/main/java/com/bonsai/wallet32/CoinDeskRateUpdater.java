@@ -109,6 +109,7 @@ public class CoinDeskRateUpdater extends Thread implements RateUpdater {
             JSONObject bpiObj = jObj.getJSONObject("bpi");
             JSONObject usdObj = bpiObj.getJSONObject("USD");
             double rate = usdObj.getDouble("rate");
+            rate = rate * GroestlCoinRate.get();
             return rate;
 
         } catch (UnsupportedEncodingException e) {
