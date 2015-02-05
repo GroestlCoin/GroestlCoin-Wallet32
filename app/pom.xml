@@ -7,7 +7,7 @@
   <groupId>com.bonsai</groupId>
   <artifactId>Wallet32</artifactId>
   <packaging>apk</packaging>
-  <name>Wallet32</name>
+  <name>GroestlCoin Wallet32</name>
   <version>0.3.13</version>
 
   <properties>
@@ -27,7 +27,7 @@
 
     <dependency>
       <groupId>com.google</groupId>
-      <artifactId>bitcoinj</artifactId>
+      <artifactId>groestlcoinj</artifactId>
       <version>0.11.3</version>
     </dependency>
 
