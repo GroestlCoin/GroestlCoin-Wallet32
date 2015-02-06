@@ -251,8 +251,8 @@ to fully recover all of your address activity.
     <string name="sweep_fee_label">Miner\'s Fee:</string>
     <string name="sweep_acct_label">Sweep to Account:</string>
     <string name="sweep_key">Sweep Private Key</string>
-    <string name="sweep_error_blockchain">There was a problem accessing address history at blockchain.info, try again later.</string>
-    <string name="sweep_error_parse">There was a problem parsing the key\'s history from blockchain.info</string>
+    <string name="sweep_error_blockchain">There was a problem accessing address history at cryptoID, try again later.</string>
+    <string name="sweep_error_parse">There was a problem parsing the key\'s history from cryptoID</string>
     <string name="sweep_no_unspent">This key has no unspent balance</string>
     <string name="sweep_needprivate">You\'ll need the private key to sweep</string>
     <string name="sweep_error_nowallet">The wallet isn\'t ready</string>
@@ -265,7 +265,7 @@ to fully recover all of your address activity.
     <string name="sweep_error_wrongnw">Address is for wrong network</string>
     <string name="sweep_wait_title">Please Wait</string>
     <string name="sweep_wait_fetching"><![CDATA[
-Fetching unspent balance for this address from blockchain.info.\n
+Fetching unspent balance for this address from cryptoID.\n
     ]]></string>
 
     <string name="title_activity_view_transactions">View Transactions</string>
@@ -293,7 +293,7 @@ This transaction is really large; it will take a while to process.\n
     <string name="button_send_request">Send Request &#8230;</string>
     <string name="button_send_address">Send Address &#8230;</string>
     <string name="button_send_key">Send Private Key &#8230;</string>
-    <string name="button_blockchain">blockchain.info</string>
+    <string name="button_blockchain">cryptoID block explorer</string>
     <string name="fiat_label">USD</string>
     <string name="eq_label">=</string>
     <string name="address_send_request_title">Send request &#8230;</string>
@@ -437,33 +437,26 @@ This transaction is really large; it will take a while to process.\n
     <string name="about_contents">
 GroestlCoin Wallet32\n
 \n
-Version: 0.3.17 (21-Oct-2014)\n
+Version: 0.1.01 (5-Feb-2015)\n
 \n
 Source:  <a href="https://github.com/HashEngineering/Groestlcoin-Wallet32">https://github.com/HashEngineering/Groestlcoin-Wallet32</a>\n
-\t which is a fork of:  <a href="https://github.com/ksedgwic/Wallet32">https://github.com/ksedgwic/Wallet32</a>\n
-\n
-Author:  Ken Sedgwick <a href="mailto:ken@bonsai.com">&lt;ken@bonsai.com&gt;</a>\n
-\n
-With contributions from:\n
-\tKarel Bílek\n
-\tHarald Hoyer\n
+Author: <a href="https:/hashengineeringsolutions.com">Hash Engineering Solutions</a> (<a href="mailto:hashengineeringsolutions@gmail.com">email</a>)\n
+This is a fork of <a href="https://github.com/ksedgwic/Wallet32">https://github.com/ksedgwic/Wallet32</a> by Ken Sedgwick <a href="mailto:ken@bonsai.com">&lt;ken@bonsai.com&gt;</a>\n
 \n
 GroestlCoin Wallet32 is made possible by:\n
-\t<a href="https://github.com/HashEngineering/groestlcoinj">groestlcoinj</a>\n
-\t\t which is a fork of <a href="https://github.com/bitcoinj/bitcoinj">bitcoinj</a>\n
+\t<a href="https://github.com/HashEngineering/groestlcoinj">groestlcoinj</a>, a fork of <a href="https://github.com/bitcoinj/bitcoinj">bitcoinj</a>\n
 \t<a href="https://github.com/schildbach/bitcoin-wallet">bitcoin-wallet</a>\n
 \t<a href="https://github.com/LivotovLabs/zxscanlib">ZXScanLib</a>\n
-\t<a href="https://blockchain.info">blockchain.info</a>\n
-\t<a href="https://www.bitstamp.net">Bitstamp</a>\n
-\n
-Data Provided by <a href="http://www.winkdex.com/">WINKDEX<sup>SM</sup></a>\n
-\n
-Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a>\n
+        \t<a href="https://poloniex.com/">Poloniex</a> (exchange)\n
+        \t<a href="http://chainz.cryptoid.info/grs/">cryptoID</a> (block explorer)\n
+        \n
+Bitcoin prices from <a href="http://www.winkdex.com/">WINKDEX<sup>SM</sup></a>, <a href="http://www.coindesk.com/price/">CoinDesk</a> and <a href="https://www.bitstamp.net">Bitstamp</a>.\n
 \n
 Donate: <a href="groestlcoin:FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf">FkknEYnex1MeZyPRnEebFK5ZBHHsFZbvaf</a>\n
 \n
-Copyright (C) 2013-2014 Bonsai Software, Inc.\n
-        Copyright (C) 2015 Hash Engineering Solutions
+Copyright (C) 2013-2014 Bonsai Software, Inc.
+\n
+Copyright (C) 2015 Hash Engineering Solutions
 All rights reserved.
 </string>
 </resources>
