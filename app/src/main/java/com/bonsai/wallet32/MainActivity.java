@@ -193,6 +193,7 @@ public class MainActivity extends BaseWalletActivity {
 
     @SuppressLint("ValidFragment")
 	public class StateProgressDialogFragment extends DialogFragment {
+        public StateProgressDialogFragment(){super();}
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -202,15 +203,16 @@ public class MainActivity extends BaseWalletActivity {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             String details = getArguments().getString("details");
+            MainActivity parent = (MainActivity)getActivity();
             AlertDialog.Builder builder =
                 new AlertDialog.Builder(getActivity());
             LayoutInflater inflater = getActivity().getLayoutInflater();
-            mStateDialogView =
+            parent.mStateDialogView =
                 inflater.inflate(R.layout.dialog_state_progress, null);
             TextView detailsTextView =
-                (TextView) mStateDialogView.findViewById(R.id.state_details);
+                (TextView) parent.mStateDialogView.findViewById(R.id.state_details);
             detailsTextView.setText(details);
-            builder.setView(mStateDialogView)
+            builder.setView(parent.mStateDialogView)
                 .setNegativeButton(R.string.sync_abort,
                                    new DialogInterface.OnClickListener() {
                                        public void onClick(DialogInterface dialog,
@@ -243,6 +245,10 @@ public class MainActivity extends BaseWalletActivity {
 
     @SuppressLint("ValidFragment")
 	public class SyncProgressDialogFragment extends DialogFragment {
+        public SyncProgressDialogFragment()
+        {
+            super();
+        }
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -255,11 +261,12 @@ public class MainActivity extends BaseWalletActivity {
             AlertDialog.Builder builder =
                 new AlertDialog.Builder(getActivity());
             LayoutInflater inflater = getActivity().getLayoutInflater();
-            mSyncDialogView = inflater.inflate(R.layout.dialog_sync_progress, null);
+            MainActivity parent = (MainActivity)getActivity();
+            parent.mSyncDialogView = inflater.inflate(R.layout.dialog_sync_progress, null);
             TextView detailsTextView =
-                (TextView) mSyncDialogView.findViewById(R.id.sync_details);
+                (TextView) parent.mSyncDialogView.findViewById(R.id.sync_details);
             detailsTextView.setText(details);
-            builder.setView(mSyncDialogView)
+            builder.setView(parent.mSyncDialogView)
                 .setNegativeButton(R.string.sync_abort,
                                    new DialogInterface.OnClickListener() {
                                        public void onClick(DialogInterface dialog,

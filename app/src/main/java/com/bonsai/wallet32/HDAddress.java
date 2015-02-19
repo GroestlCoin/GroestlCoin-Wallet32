@@ -39,8 +39,8 @@ import com.google.bitcoin.crypto.KeyCrypter;
 
 public class HDAddress {
 
-    // Tue Oct 15 11:18:03 PDT 2013
-    public static final long EPOCH = 1381861127;
+    //  Sun, 01 Feb 2015 12:00:00 GMT
+    public static final long EPOCH = 1422792000;
 
     private static Logger mLogger = 
         LoggerFactory.getLogger(HDAddress.class);

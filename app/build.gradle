@@ -2,15 +2,21 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
+        config {
+            keyAlias 'android-apps '
+            keyPassword 'HashTime49'
+            storeFile file('D:/.android/hashengineering.keystore')
+            storePassword 'Mining4life'
+        }
     }
-    compileSdkVersion 21
+    compileSdkVersion 16
     buildToolsVersion "20.0.0"
     defaultConfig {
         applicationId "hashengineering.groestlcoin.wallet32"
         minSdkVersion 9
         targetSdkVersion 16
-        versionCode 44
-        versionName "0.3.17"
+        versionCode 45
+        versionName '0.1.01'
     }
     buildTypes {
         release {
@@ -20,6 +26,8 @@ android {
     }
     dexOptions {
         jumboMode true
+    }
+    productFlavors {
     }
 }
 

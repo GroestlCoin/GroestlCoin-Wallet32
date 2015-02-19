@@ -209,7 +209,7 @@
             <intent-filter android:label="@string/title_activity_pair_wallet" >
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
-                <data android:mimeType="application/wallet32-pairing" />
+                <data android:mimeType="application/groestlcoin-wallet32-pairing" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
