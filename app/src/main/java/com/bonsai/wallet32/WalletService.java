@@ -1153,7 +1153,7 @@ public class WalletService extends Service
                 String script = output.getString("script");
 
                 // Reverse byte order, create hash.
-                Sha256Hash hash = new Sha256Hash(WalletUtil.msgHexToBytes(tx_hash));
+                Sha256Hash hash = new Sha256Hash(/*WalletUtil.msgHexToBytes(*/tx_hash/*)*/);
             
                 tx.addInput(new TransactionInput
                             (mParams, tx, new byte[]{},

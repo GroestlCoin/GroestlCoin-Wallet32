@@ -62,7 +62,8 @@ import com.google.bitcoin.crypto.ChildNumber;
 import com.google.bitcoin.crypto.DeterministicKey;
 import com.google.bitcoin.crypto.HDKeyDerivation;
 import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterScrypt;
+import com.google.bitcoin.crypto.KeyCrypterGroestl;
+//import com.google.bitcoin.crypto.KeyCrypterScrypt;
 import com.google.bitcoin.crypto.MnemonicCodeX;
 import com.google.bitcoin.script.Script;
 import com.google.bitcoin.wallet.WalletTransaction;
@@ -141,7 +142,7 @@ public class HDWallet {
                 new DataInputStream(new FileInputStream(file));
 
             // Read IV from file.
-            byte[] iv = new byte[KeyCrypterScrypt.BLOCK_LENGTH];
+            byte[] iv = new byte[KeyCrypterGroestl.BLOCK_LENGTH/*KeyCrypterScrypt.BLOCK_LENGTH*/];
 			dis.readFully(iv);
 
             // Read the ciphertext from the file.
@@ -764,7 +765,7 @@ public class HDWallet {
             byte[] plainBytes = jsonstr.getBytes(Charset.forName("UTF-8"));
 
             // Generate an IV.
-            byte[] iv = new byte[KeyCrypterScrypt.BLOCK_LENGTH];
+            byte[] iv = new byte[KeyCrypterGroestl.BLOCK_LENGTH];
             secureRandom.nextBytes(iv);
 
             // Encrypt the serialized data.

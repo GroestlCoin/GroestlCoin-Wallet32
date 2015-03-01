@@ -17,7 +17,7 @@
 package com.google.bitcoin.crypto;
 
 import com.google.protobuf.ByteString;
-import com.lambdaworks.crypto.SCrypt;
+//import com.lambdaworks.crypto.SCrypt;
 import org.bitcoinj.wallet.Protos;
 import org.bitcoinj.wallet.Protos.ScryptParameters;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
@@ -35,6 +35,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import com.hashengineering.crypto.Groestl;
 
 /**
  * <p>This class encrypts and decrypts byte arrays and strings using scrypt as the
@@ -43,15 +44,15 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <p>You can use this class to:</p>
  *
  * <p>1) Using a user password, create an AES key that can encrypt and decrypt your private keys.
- * To convert the password to the AES key, scrypt is used. This is an algorithm resistant
+ * To convert the password to the AES key, Groestl2 is used. This is an algorithm resistant
  * to brute force attacks. You can use the ScryptParameters to tune how difficult you
  * want this to be generation to be.</p>
  *
  * <p>2) Using the AES Key generated above, you then can encrypt and decrypt any bytes using
  * the AES symmetric cipher. Eight bytes of salt is used to prevent dictionary attacks.</p>
  */
-public class KeyCrypterScrypt implements KeyCrypter, Serializable {
-    private static final Logger log = LoggerFactory.getLogger(KeyCrypterScrypt.class);
+public class KeyCrypterGroestl implements KeyCrypter, Serializable {
+    private static final Logger log = LoggerFactory.getLogger(KeyCrypterGroestl.class);
     private static final long serialVersionUID = 949662512049152670L;
 
     /**
@@ -78,7 +79,7 @@ public class KeyCrypterScrypt implements KeyCrypter, Serializable {
     /**
      * Encryption/Decryption using default parameters and a random salt.
      */
-    public KeyCrypterScrypt() {
+    public KeyCrypterGroestl() {
         byte[] salt = new byte[SALT_LENGTH];
         secureRandom.nextBytes(salt);
         Protos.ScryptParameters.Builder scryptParametersBuilder = Protos.ScryptParameters.newBuilder().setSalt(ByteString.copyFrom(salt));
@@ -91,7 +92,7 @@ public class KeyCrypterScrypt implements KeyCrypter, Serializable {
      * @param scryptParameters ScryptParameters to use
      * @throws NullPointerException if the scryptParameters or any of its N, R or P is null.
      */
-    public KeyCrypterScrypt(ScryptParameters scryptParameters) {
+    public KeyCrypterGroestl(ScryptParameters scryptParameters) {
         this.scryptParameters = checkNotNull(scryptParameters);
         // Check there is a non-empty salt.
         // (Some early MultiBit wallets has a missing salt so it is not a hard fail).
@@ -125,7 +126,12 @@ public class KeyCrypterScrypt implements KeyCrypter, Serializable {
                 log.warn("You are using a ScryptParameters with no salt. Your encryption may be vulnerable to a dictionary attack.");
             }
 
-            byte[] keyBytes = SCrypt.scrypt(passwordBytes, salt, (int) scryptParameters.getN(), scryptParameters.getR(), scryptParameters.getP(), KEY_LENGTH);
+            //byte[] keyBytes = SCrypt.scrypt(passwordBytes, salt, (int) scryptParameters.getN(), scryptParameters.getR(), scryptParameters.getP(), KEY_LENGTH);
+            int keyLength = passwordBytes.length + salt.length;
+            byte [] passwordWithSalt = new byte [keyLength];
+            System.arraycopy(passwordBytes, 0, passwordWithSalt, 0, passwordBytes.length);
+            System.arraycopy(salt, 0, passwordWithSalt, passwordBytes.length, passwordWithSalt.length - passwordBytes.length);
+            byte[] keyBytes = Groestl.digest(passwordBytes);
             return new KeyParameter(keyBytes);
         } catch (Exception e) {
             throw new KeyCrypterException("Could not generate key from password and salt.", e);
@@ -244,7 +250,7 @@ public class KeyCrypterScrypt implements KeyCrypter, Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final KeyCrypterScrypt other = (KeyCrypterScrypt) obj;
+        final KeyCrypterGroestl other = (KeyCrypterGroestl) obj;
 
         return com.google.common.base.Objects.equal(this.scryptParameters, other.scryptParameters);
     }

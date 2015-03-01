@@ -51,7 +51,8 @@ import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.crypto.DeterministicKey;
 import com.google.bitcoin.crypto.HDKeyDerivation;
 import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterScrypt;
+import com.google.bitcoin.crypto.KeyCrypterGroestl;
+//import com.google.bitcoin.crypto.KeyCrypterScrypt;
 import com.google.bitcoin.crypto.MnemonicCodeX;
 import com.google.bitcoin.crypto.TransactionSignature;
 import com.google.bitcoin.script.Script;
@@ -94,7 +95,7 @@ public class WalletUtil {
         } else {
             // Create salt and write to file.
             SecureRandom secureRandom = new SecureRandom();
-            salt = new byte[KeyCrypterScrypt.SALT_LENGTH];
+            salt = new byte[KeyCrypterGroestl.SALT_LENGTH];
             secureRandom.nextBytes(salt);
             writeSalt(context, salt);
         }
@@ -219,7 +220,7 @@ public class WalletUtil {
             Protos.ScryptParameters.newBuilder()
             .setSalt(ByteString.copyFrom(salt));
         ScryptParameters scryptParameters = scryptParametersBuilder.build();
-        return new KeyCrypterScrypt(scryptParameters);
+        return new KeyCrypterGroestl(scryptParameters);
     }
 
     public static byte[] msgHexToBytes(String hexstr) {
