@@ -76,15 +76,15 @@ pair them.
     <string name="passcode_invalid">Passcode invalid, try again</string>
     <string name="passcode_waittitle">Please Wait</string>
     <string name="passcode_waitvalidate"><![CDATA[
-Your wallet is encrypted with scrypt to keep it safe;
+Your wallet is encrypted with groestl to keep it safe;
 validating your passcode will take a few seconds.\n
     ]]></string>
     <string name="passcode_waitdecrypt"><![CDATA[
-Your wallet is encrypted with scrypt to keep it safe;
+Your wallet is encrypted with groestl to keep it safe;
 decrypting it will take a few seconds.\n
     ]]></string>
     <string name="passcode_waitsetup"><![CDATA[
-Your wallet is encrypted with scrypt to keep it safe;
+Your wallet is encrypted with groestl to keep it safe;
 setting it up will take a few seconds.\n
     ]]></string>
     <string name="passcode_waitchange"><![CDATA[

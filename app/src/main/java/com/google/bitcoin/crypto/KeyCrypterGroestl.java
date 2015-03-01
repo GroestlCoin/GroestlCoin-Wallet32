@@ -51,7 +51,7 @@ import com.hashengineering.crypto.Groestl;
  * <p>2) Using the AES Key generated above, you then can encrypt and decrypt any bytes using
  * the AES symmetric cipher. Eight bytes of salt is used to prevent dictionary attacks.</p>
  */
-public class KeyCrypterGroestl implements KeyCrypter, Serializable {
+public class KeyCrypterGroestl extends KeyCrypterScrypt /*implements KeyCrypter, Serializable*/ {
     private static final Logger log = LoggerFactory.getLogger(KeyCrypterGroestl.class);
     private static final long serialVersionUID = 949662512049152670L;
 
@@ -74,16 +74,17 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
     private static final transient SecureRandom secureRandom = new SecureRandom();
 
     // Scrypt parameters.
-    private final transient ScryptParameters scryptParameters;
+    //private final transient ScryptParameters scryptParameters;
 
     /**
      * Encryption/Decryption using default parameters and a random salt.
      */
     public KeyCrypterGroestl() {
-        byte[] salt = new byte[SALT_LENGTH];
+        super();
+        /*byte[] salt = new byte[SALT_LENGTH];
         secureRandom.nextBytes(salt);
         Protos.ScryptParameters.Builder scryptParametersBuilder = Protos.ScryptParameters.newBuilder().setSalt(ByteString.copyFrom(salt));
-        this.scryptParameters = scryptParametersBuilder.build();
+        this.scryptParameters = scryptParametersBuilder.build();*/
     }
 
     /**
@@ -93,14 +94,15 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
      * @throws NullPointerException if the scryptParameters or any of its N, R or P is null.
      */
     public KeyCrypterGroestl(ScryptParameters scryptParameters) {
-        this.scryptParameters = checkNotNull(scryptParameters);
+        super(scryptParameters);
+        /*this.scryptParameters = checkNotNull(scryptParameters);
         // Check there is a non-empty salt.
         // (Some early MultiBit wallets has a missing salt so it is not a hard fail).
         if (scryptParameters.getSalt() == null
                 || scryptParameters.getSalt().toByteArray() == null
                 || scryptParameters.getSalt().toByteArray().length == 0) {
             log.warn("You are using a ScryptParameters with no salt. Your encryption may be vulnerable to a dictionary attack.");
-        }
+        }*/
     }
 
     /**
@@ -118,8 +120,8 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
         try {
             passwordBytes = convertToByteArray(password);
             byte[] salt = new byte[0];
-            if ( scryptParameters.getSalt() != null) {
-                salt = scryptParameters.getSalt().toByteArray();
+            if ( getScryptParameters().getSalt() != null) {
+                salt = getScryptParameters().getSalt().toByteArray();
             } else {
                 // Warn the user that they are not using a salt.
                 // (Some early MultiBit wallets had a blank salt).
@@ -219,9 +221,9 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
         return byteArray;
     }
 
-    public ScryptParameters getScryptParameters() {
+    /*public ScryptParameters getScryptParameters() {
         return scryptParameters;
-    }
+    }*/
 
     /**
      * Return the EncryptionType enum value which denotes the type of encryption/ decryption that this KeyCrypter
@@ -237,10 +239,10 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
         return "Scrypt/AES";
     }
 
-    @Override
+    /*@Override
     public int hashCode() {
         return com.google.common.base.Objects.hashCode(scryptParameters);
-    }
+    }*/
 
     @Override
     public boolean equals(Object obj) {
@@ -252,6 +254,6 @@ public class KeyCrypterGroestl implements KeyCrypter, Serializable {
         }
         final KeyCrypterGroestl other = (KeyCrypterGroestl) obj;
 
-        return com.google.common.base.Objects.equal(this.scryptParameters, other.scryptParameters);
+        return com.google.common.base.Objects.equal(this.getScryptParameters(), other.getScryptParameters());
     }
 }
