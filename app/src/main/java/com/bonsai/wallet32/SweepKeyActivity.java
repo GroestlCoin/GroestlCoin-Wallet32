@@ -41,6 +41,7 @@ import com.google.bitcoin.core.CoinDefinition;
 import com.google.bitcoin.core.DumpedPrivateKey;
 import com.google.bitcoin.core.ECKey;
 import com.google.bitcoin.core.NetworkParameters;
+import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.WrongNetworkException;
 import com.google.bitcoin.params.MainNetParams;
 import com.google.bitcoin.script.ScriptBuilder;
@@ -500,6 +501,7 @@ public class SweepKeyActivity extends BaseWalletActivity {
                     {
                         Address addressObject = new Address(MainNetParams.get(), this.address);
                         output.put("script", ScriptBuilder.createOutputScript(addressObject).getProgram());
+                        mLogger.info("address: "+addressObject.toString() +" script value: "+ Utils.bytesToHexString(ScriptBuilder.createOutputScript(addressObject).getProgram()));
                     }
                 }
 
