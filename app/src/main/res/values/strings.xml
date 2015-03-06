@@ -437,7 +437,7 @@ This transaction is really large; it will take a while to process.\n
     <string name="about_contents">
 GroestlCoin Wallet32\n
 \n
-Version: 0.1.01 (5-Feb-2015)\n
+Version: 0.1.3 (5-Mar-2015)\n
 \n
 Source:  <a href="https://github.com/HashEngineering/Groestlcoin-Wallet32">https://github.com/HashEngineering/Groestlcoin-Wallet32</a>\n
 Author: <a href="https:/hashengineeringsolutions.com">Hash Engineering Solutions</a> (<a href="mailto:hashengineeringsolutions@gmail.com">email</a>)\n

@@ -12,14 +12,14 @@
         android:defaultValue="@string/pref_btc_units_default"
 	/>
 
-    <com.bonsai.wallet32.BetterListPreference
+    <!--com.bonsai.wallet32.BetterListPreference
         android:key="pref_fiatRateSource"
         android:title="@string/pref_fiat_rate_source"
         android:dialogTitle="@string/pref_fiat_rate_source"
         android:entries="@array/pref_fiat_rate_sources_entries"
         android:entryValues="@array/pref_fiat_rate_sources_values"
         android:defaultValue="@string/pref_fiat_rate_sources_default"
-	/>
+	/-->
 
     <com.bonsai.wallet32.BetterListPreference
         android:key="pref_backgroundTimeout"
