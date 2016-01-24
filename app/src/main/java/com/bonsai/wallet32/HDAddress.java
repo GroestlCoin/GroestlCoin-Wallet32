@@ -273,6 +273,10 @@ public class HDAddress {
     public boolean matchAddress(Address addr) {
         return mAddress.toString().equals(addr.toString());
     }
+    public long getCreationTime()
+    {
+        return this.mECKey.getCreationTimeSeconds();
+    }
 }
 
 // Local Variables:

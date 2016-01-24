@@ -52,13 +52,15 @@ public class RescanActivity extends BaseWalletActivity {
 
     public void onEpochClicked(View view) {
         mLogger.info("epoch rescan selected");
-        mScanTime = HDAddress.EPOCH;
+        mScanTime = 0;//HDAddress.EPOCH;
+
     }
 
     public void doRescan(View view) {
         if (mWalletService != null)
         {
             // Kick off the rescan.
+
             mWalletService.rescanBlockchain(mScanTime);
 
             // Back to the main activity for progress.

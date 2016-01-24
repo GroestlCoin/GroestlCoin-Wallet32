@@ -322,6 +322,12 @@ public class HDAccount {
 
         return retval;
     }
+
+    public long getEarliestCreationTime()
+    {
+        long time = Math.min(mChangeChain.getEarliestCreationTime(), mReceiveChain.getEarliestCreationTime());
+        return time;
+    }
 }
 
 // Local Variables:

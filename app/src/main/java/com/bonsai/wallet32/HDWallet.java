@@ -56,6 +56,7 @@ import com.google.bitcoin.core.TransactionConfidence;
 import com.google.bitcoin.core.TransactionConfidence.ConfidenceType;
 import com.google.bitcoin.core.TransactionInput;
 import com.google.bitcoin.core.TransactionOutput;
+import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.Wallet;
 import com.google.bitcoin.core.Wallet.SendRequest;
 import com.google.bitcoin.crypto.ChildNumber;
@@ -832,6 +833,16 @@ public class HDWallet {
                 return retval;
         }
         return retval;
+    }
+
+    public long getEarliestCreationTime()
+    {
+        long time = Utils.currentTimeSeconds();
+        for(HDAccount hda: mAccounts)
+        {
+            time = Math.min(hda.getEarliestCreationTime(), time);
+        }
+        return time;
     }
 }
 

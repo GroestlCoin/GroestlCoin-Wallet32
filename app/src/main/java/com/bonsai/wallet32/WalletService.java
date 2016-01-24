@@ -376,8 +376,9 @@ public class WalletService extends Service
 
                 if (maxExtended > HDChain.maxSafeExtend()) {
                     mLogger.info(String.format("%d addresses added, rescanning",
-                                               maxExtended));
-                    rescanBlockchain(HDAddress.EPOCH);
+                            maxExtended));
+                    //rescanBlockchain(HDAddress.EPOCH);
+                    rescanBlockchain(mKit.getCreationTime()-24*7*3600);
                 }
             }
         };
@@ -605,8 +606,10 @@ public class WalletService extends Service
             // Do we need another rescan?
             if (maxExtended > HDChain.maxSafeExtend()) {
                 mLogger.info(String.format("rescan extended by %d, rescanning",
-                                           maxExtended));
-                rescanBlockchain(HDAddress.EPOCH);
+                        maxExtended));
+                //rescanBlockchain(HDAddress.EPOCH);
+
+                rescanBlockchain(mKit.getCreationTime()-24*7*3600);
             }
             else {
                 mLogger.info("synchronized");
@@ -874,6 +877,9 @@ public class WalletService extends Service
 
     public void rescanBlockchain(long rescanTime) {
         mLogger.info(String.format("RESCANNING from %d", rescanTime));
+
+        if(rescanTime == 0)
+            rescanTime = mKit.getCreationTime();
 
         // Make sure we are in a good state for this.
         if (mState != State.READY) {
@@ -1149,7 +1155,7 @@ public class WalletService extends Service
 				output = outputs.getJSONObject(ii);
 
                 String tx_hash = output.getString("tx_hash");
-                int tx_output_n = output.getInt("tx_ouput_n");  //this typo is necessary for GroestlCoin
+                int tx_output_n = output.getInt("tx_ouput_n");  //this typo is necessary for Groestlcoin
                 String script = output.getString("script");
 
                 // Reverse byte order, create hash.

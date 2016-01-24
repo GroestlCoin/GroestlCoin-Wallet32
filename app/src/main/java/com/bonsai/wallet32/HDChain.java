@@ -251,6 +251,15 @@ public class HDChain {
         }
         return null;
     }
+    public long getEarliestCreationTime()
+    {
+        long time = Utils.currentTimeSeconds();
+        for(HDAddress hda: mAddrs)
+        {
+            time = Math.min(hda.getCreationTime(), time);
+        }
+        return time;
+    }
 }
 
 // Local Variables:

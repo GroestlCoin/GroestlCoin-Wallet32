@@ -324,6 +324,11 @@ public class MyWalletAppKit extends AbstractIdleService {
     public File directory() {
         return directory;
     }
+
+    public long getCreationTime()
+    {
+        return vWallet.getEarliestKeyCreationTime();
+    }
 }
 
 // Local Variables:
