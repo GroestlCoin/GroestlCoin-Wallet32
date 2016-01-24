@@ -7,7 +7,7 @@
   <groupId>com.bonsai</groupId>
   <artifactId>Wallet32</artifactId>
   <packaging>apk</packaging>
-  <name>GroestlCoin Wallet32</name>
+  <name>Groestlcoin Wallet32</name>
   <version>0.3.13</version>
 
   <properties>
