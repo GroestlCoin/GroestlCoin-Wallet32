@@ -7,8 +7,8 @@ android {
         applicationId "hashengineering.groestlcoin.wallet32"
         minSdkVersion 9
         targetSdkVersion 16
-        versionCode 50
-        versionName '0.1.13c'
+        versionCode 52
+        versionName '0.1.13e'
     }
     buildTypes {
         release {
