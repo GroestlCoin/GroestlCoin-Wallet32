@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 19
     buildToolsVersion "20.0.0"
     defaultConfig {
         applicationId "hashengineering.groestlcoin.wallet32"
         minSdkVersion 9
         targetSdkVersion 16
-        versionCode 52
-        versionName '0.1.13e'
+        versionCode 53
+        versionName '0.1.13f'
     }
     buildTypes {
         release {
@@ -40,7 +40,7 @@ dependencies {
     compile 'com.google.code.findbugs:jsr305:1.3.9'
     //compile 'eu.livotov:zxscan:1.1@aar'
     compile project(':local-libs:zxscanlib')
-    compile 'com.android.support:appcompat-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:19.0.1'
     compile 'com.github.tony19:logback-android-core:1.1.1-2'
     compile 'com.github.tony19:logback-android-classic:1.1.1-2'
     compile 'org.slf4j:slf4j-api:1.7.6'
